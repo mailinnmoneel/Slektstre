@@ -10,8 +10,6 @@ namespace Slektstre
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Tilgjengelige kommandoer er hjelp, liste og id");
-
             Person p = new Person();
 
             var sverreMagnus = new Person { Id = 1, FirstName = "Sverre Magnus", BirthYear = 2005 };
@@ -36,6 +34,7 @@ namespace Slektstre
             var app = new FamilyApp(sverreMagnus, ingridAlexandra, haakon,
                 metteMarit, marius, harald, sonja, olav);
             Console.WriteLine(app.WelcomeMessage);
+            Console.WriteLine("Tilgjengelige kommandoer er hjelp, liste og id");
             while (true)
             {
                 Console.Write(app.CommandPrompt);

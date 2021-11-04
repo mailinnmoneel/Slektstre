@@ -10,28 +10,24 @@ namespace Slektstre
     {
         public List<Person> PersonList; 
       
-        public string WelcomeMessage = "Velkommen!";
-        public string CommandPrompt = "Skriv inn kommando";
+        public string WelcomeMessage = "Velkommen til FamilyApp!";
+        public string CommandPrompt = "Skriv inn kommando: ";
         private string response;
 
         public FamilyApp(params Person[] people)
         {
             PersonList = new List<Person>(people); 
         }
-
         public string HandleCommand(string command)
         { 
-            
             char space = (char)32;
             var splitCommand = command.Split(space);
 
-
             if (command == "hjelp")
             {
-                response = "Tilgjengelige kommandoer er hjelp, liste og id";
+                response = "Tilgjengelige kommandoer er hjelp, liste og id. ";
                 return response;
             }
-          
             if ( splitCommand[0] == "vis")
             {
                 response = "";
@@ -47,7 +43,6 @@ namespace Slektstre
                 response = result;
                 return response;
             }
-          
             if ( command == "liste")
             {
                 response = "";
@@ -60,7 +55,6 @@ namespace Slektstre
             }
             return " ";
         }
-
         private Person[] FindChildern(Person thePerson)
         {
             var children = new List<Person>();
@@ -71,10 +65,8 @@ namespace Slektstre
                     children.Add(people);
                 }
             }
-
             return children.ToArray();
         }
-
         private Person FindPerson(string[] splitCommand)
         {
             Person foundPerson = null;
@@ -83,7 +75,6 @@ namespace Slektstre
                 if (person.Id != Convert.ToInt32(splitCommand[1])) continue;
                 foundPerson = person;
             }
-
             return foundPerson;
         }
     }
